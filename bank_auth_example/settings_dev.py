@@ -24,8 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-d5a#7vyhegj9no7@8)ne!6x(*+b$d!ftb1ydn(0^gqz&+ib8y!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG         = True
 ALLOWED_HOSTS = []
 
 
@@ -46,7 +45,7 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME'   : timedelta(minutes=20),
     'REFRESH_TOKEN_LIFETIME'  : timedelta(days=1),
     'ROTATE_REFRESH_TOKENS'   : False,
-    'BLACKLIST_AFTER_ROTATION': True,
+    'BLACKLIST_AFTER_ROTATION': False,
     'UPDATE_LAST_LOGIN'       : False,
     'ALGORITHM'               : 'HS256',
     'USER_ID_FIELD'           : 'id',
@@ -72,7 +71,8 @@ REST_FRAMEWORK = {
     )
 }
 
-ROOT_URLCONF = 'bank_auth_example.urls'
+AUTH_USER_MODEL = 'auth_example.User'
+ROOT_URLCONF    = 'bank_auth_example.urls'
 
 TEMPLATES = [
     {
@@ -98,8 +98,12 @@ WSGI_APPLICATION = 'bank_auth_example.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE'   : 'django.db.backends.postgresql_psycopg2',
+        'NAME'     : 'auth_ms_p38',
+        'USER'     : 'postgres',
+        'PASSWORD' : 'postgres',
+        'HOST'     : 'localhost',
+        'PORT'     : '5432'
     }
 }
 
