@@ -99,9 +99,9 @@ WSGI_APPLICATION = 'bank_auth_example.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE'   : 'django.db.backends.postgresql_psycopg2',
-        'NAME'     : 'auth_ms_p38',
+        'NAME'     : 'rental_db_dev',
         'USER'     : 'postgres',
-        'PASSWORD' : 'postgres',
+        'PASSWORD' : 'skrillex123',
         'HOST'     : 'localhost',
         'PORT'     : '5432'
     }
