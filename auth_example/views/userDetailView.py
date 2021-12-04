@@ -30,10 +30,10 @@ class UserDeactiveView(generics.DestroyAPIView):
         obj = User.objects.get(id=pk)
         if (obj):
             if(obj.is_active == False):
-                return Response("Esta cuenta ya está desactivada", status=status.HTTP_400_BAD_REQUEST)
+                return Response("User has already been previously deactivated", status=status.HTTP_400_BAD_REQUEST)
             obj.is_active = False
             obj.save()
-            return Response(status=status.HTTP_202_ACCEPTED)
+            return Response("User has been deactivated", status=status.HTTP_202_ACCEPTED)
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
 

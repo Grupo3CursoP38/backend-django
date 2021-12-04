@@ -32,10 +32,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField("is_active", default=True)
     password = models.CharField('Password', max_length=256)
 
+    ''' 
     def save(self, **kwargs):
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN'
         self.password = make_password(self.password, some_salt)
         super().save(**kwargs)
-
+    '''
+    
     objects = UserManager()
     USERNAME_FIELD = 'email'
