@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 
 class UserDetailView(generics.RetrieveAPIView):
-    queryset = User.objects.all()
+    queryset = User.objects.filter(is_active=True) 
     serializer_class = UserSerializer
 
     def get(self, request, *args, **kwargs):
@@ -15,7 +15,7 @@ class UserDetailView(generics.RetrieveAPIView):
 
 
 class UserUpdateView(generics.UpdateAPIView):
-    queryset = User.objects.all()
+    queryset = User.objects.filter(is_active=True) 
     serializer_class = UserSerializer
 
     def update(self, request, *args, **kwargs):
